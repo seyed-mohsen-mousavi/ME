@@ -13,6 +13,9 @@
     --foreground: #ededed;
   }
 }
+html {
+  scroll-behavior: smooth;
+}
 
 body {
   color: var(--foreground);
@@ -24,4 +27,7 @@ body {
   .text-balance {
     text-wrap: balance;
   }
+}
+.head-text {
+  @apply font-semibold text-4xl font-mod
 }
