@@ -18,7 +18,9 @@ import { BiLogoTypescript, BiLogoPostgresql } from "react-icons/bi";
 import { CircularProgress } from "@heroui/react";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { GiArmoredBoomerang } from "react-icons/gi";
 
+// ---------------------------------
 const skillData = [
   { icon: FaReact, value: 89 },
   { icon: SiNextdotjs, value: 98 },
@@ -29,6 +31,15 @@ const skillData = [
   { icon: SiAdobephotoshop, value: 100 },
   { icon: FaGitAlt, value: 88 },
   { icon: RiTailwindCssFill, value: 100 },
+];
+// ---------------------------------
+const socialLinks = [
+  { icon: RiTelegram2Fill, href: "https://t.me/XSeyed" },
+  { icon: FaGithub, href: "https://github.com/seyed-mohsen-mousavi" },
+  {
+    icon: FaLinkedinIn,
+    href: "https://www.linkedin.com/in/seyed-mohsen-840941277/",
+  },
 ];
 
 export default function Home() {
@@ -100,13 +111,16 @@ export default function Home() {
         transition={{ duration: 0.6, delay: 0.6, ease: "easeOut" }}
       >
         <div className="flex items-center gap-8">
-          {[RiTelegram2Fill, FaGithub, FaLinkedinIn].map((Icon, index) => (
-            <motion.button
+          {socialLinks.map(({ icon: Icon, href }, index) => (
+            <motion.a
               key={index}
+              href={href}
+              target="_blank"
+              rel="noopener noreferrer"
               transition={{ type: "spring", stiffness: 300, damping: 20 }}
             >
               <Icon className="size-6" />
-            </motion.button>
+            </motion.a>
           ))}
         </div>
       </motion.div>
@@ -114,7 +128,57 @@ export default function Home() {
       {/* About Me */}
       <div id="about">
         <h2 className="head-text my-10">About ME</h2>
-        <div className="flex flex-col gap-5 text-lg text-neutral-400 md:flex-row">
+
+        <section>
+          <div className="text-white">
+            <div className="my-12 flex flex-col items-center md:my-24 md:flex-row">
+              <div className="flex w-full flex-col items-start justify-center p-8 lg:w-1/3">
+                <h1 className="tracking-loose py-2 font-mod text-3xl font-bold md:text-5xl">
+                  Mohsen Mousavi
+                </h1>
+                <h2 className="mb-2 text-3xl leading-relaxed md:text-5xl md:leading-snug">
+                  Full-stack Developer & UI/UX Designer
+                </h2>
+                <p className="mb-4 text-sm text-gray-50 md:text-base">
+                  I specialize in creating seamless digital experiences by
+                  combining modern UI designs with robust backend solutions.
+                  Explore my portfolio to see how I bring creativity and
+                  technology together.
+                </p>
+                <Link
+                  href={""}
+                  className="flex items-center gap-2 rounded-xl border px-5 py-3 font-mod text-lg font-semibold ring-1 ring-white/15 transition-all ease-in-out hover:ring-4 active:ring-8"
+                >
+                  View My Work
+                </Link>
+              </div>
+              <div className="mb-6 ml-0 mt-12 justify-center p-8 md:mb-0 md:ml-12 md:mt-0 lg:w-2/3">
+                <div className="flex h-48 flex-wrap content-center">
+                  {/* <div>
+                    <img
+                      className="mt-28 inline-block hidden xl:block"
+                      src="https://user-images.githubusercontent.com/54521023/116969935-c13d5b00-acd4-11eb-82b1-5ad2ff10fb76.png"
+                    />
+                  </div>
+                  <div>
+                    <img
+                      className="mt-24 inline-block p-8 md:mt-0 md:p-0"
+                      src="https://user-images.githubusercontent.com/54521023/116969931-bedb0100-acd4-11eb-99a9-ff5e0ee9f31f.png"
+                    />
+                  </div>
+                  <div>
+                    <img
+                      className="mt-28 inline-block hidden lg:block"
+                      src="https://user-images.githubusercontent.com/54521023/116969939-c1d5f180-acd4-11eb-8ad4-9ab9143bdb50.png"
+                    />
+                  </div> */}
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="flex flex-col gap-5 text-lg text-neutral-400 md:flex-row">
           <motion.p
             initial={{ filter: "blur(6px)" }}
             whileInView={{ filter: "blur(0px)" }}
@@ -122,13 +186,13 @@ export default function Home() {
             className="max-w-2xl"
             viewport={{ once: true }}
           >
-            Hi! I'm Mohsen Mousavi, a{" "}
+            a{" "}
             <span className="font-semibold text-neutral-200">full-stack</span>{" "}
-            developer with 6 years of experience in web development. From
-            crafting{" "}
+            developer with over 3 years of experience in web development. I
+            specialize in crafting{" "}
             <span className="font-semibold text-neutral-200">modern UI</span>{" "}
-            designs to optimizing backend performance, I’m always focused on
-            building{" "}
+            designs and optimizing backend performance, always focused on
+            creating{" "}
             <span className="font-semibold text-neutral-200">
               user-friendly
             </span>{" "}
@@ -140,31 +204,31 @@ export default function Home() {
             transition={{ duration: 0.4, delay: 0.3, ease: "easeOut" }}
             viewport={{ once: true }}
           >
-            I love exploring new{" "}
+            I am passionate about exploring new{" "}
             <span className="font-semibold text-neutral-200">technologies</span>
-            , improving{" "}
+            , enhancing{" "}
             <span className="font-semibold text-neutral-200">
               SEO strategies
             </span>
-            , and enhancing{" "}
+            , and improving{" "}
             <span className="font-semibold text-neutral-200">
               user interactions
             </span>
-            . My work is driven by{" "}
+            . My work is fueled by{" "}
             <span className="font-semibold text-neutral-200">creativity</span>,{" "}
             <span className="font-semibold text-neutral-200">
               problem-solving
             </span>
-            , and a strong commitment to{" "}
+            , and a strong dedication to{" "}
             <span className="font-semibold text-neutral-200">
               continuous learning
             </span>
-            . Currently, I’m working on{" "}
+            . Currently, I am working on{" "}
             <span className="font-semibold text-neutral-200">
               Sofreh Khaneh
             </span>
-            , a Persian movie and poetry platform, where I blend technical
-            expertise with{" "}
+            , a Persian movie and poetry platform where I combine my technical
+            skills with{" "}
             <span className="font-semibold text-neutral-200">
               artistic vision
             </span>{" "}
@@ -174,10 +238,10 @@ export default function Home() {
             </span>
             .
           </motion.p>
-        </div>
+        </section>
       </div>
       {/* Skills */}
-      <div  id="skills">
+      <div id="skills">
         <h2 className="head-text my-10">Skills</h2>
         <div className="grid grid-cols-2 place-items-center gap-20 md:grid-cols-3 lg:grid-cols-5 2xl:grid-cols-6">
           {skillData.map(({ icon: Icon, value }, index) => (
@@ -199,18 +263,18 @@ export default function Home() {
         </div>
       </div>
       {/* Projects */}
-      <div id="projects">
+      <div id="projects" className="flex flex-col">
         <h2 className="head-text my-10">Projects</h2>
         <div className="mb-20 grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4">
           <div className="group relative sm:max-w-96">
             <Link
-              href={""}
+              href={"https://app.goldencheat.ir/  "}
               style={{ textShadow: "-25px -0px 50px rgba(255, 255, 255, 0.7)" }}
               className="font-mod text-lg font-bold text-neutral-100"
             >
               App.GoldenCheat
             </Link>
-            <Link href={"/"}>
+            <Link href={"https://app.goldencheat.ir/"}>
               <Image
                 src={"/images/p-golden.png"}
                 alt=""
@@ -283,9 +347,9 @@ export default function Home() {
             <Link
               href={"https://seyed-mohsen-mousavi.github.io/Rick-Morty/"}
               style={{ textShadow: "-25px -0px 50px rgba(255, 255, 255, 0.7)" }}
-              className="font-mod text-lg font-bold text-neutral-100 flex items-center"
+              className="flex items-center font-mod text-lg font-bold text-neutral-100"
             >
-              Rick And Morty 
+              Rick And Morty
             </Link>
             <Link href={"https://seyed-mohsen-mousavi.github.io/Rick-Morty/"}>
               <Image
@@ -305,6 +369,9 @@ export default function Home() {
             </div>
           </div>
         </div>
+        <button className="mx-auto flex items-center gap-2 rounded-xl border px-5 py-3 font-mod text-lg font-semibold ring-1 ring-white/15 transition-all ease-in-out hover:ring-4 active:ring-8">
+          See More <GiArmoredBoomerang className="size-6" />
+        </button>
       </div>
       <hr className="-mb-5 shadow-2xl shadow-white blur-sm" />
       <footer className="mx-auto !mb-4 font-mod">

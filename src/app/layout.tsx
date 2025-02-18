@@ -14,6 +14,9 @@ export const metadata: Metadata = {
             PostgreSQL, and Node.js. My ability to create engaging and efficient
             user experiences, particularly with UI/UX design principles, allows
             me to develop complex projects effectively and efficiently.`,
+  icons: {
+    icon: "/images/logo.jpeg",
+  },
 };
 const montserrat = localFont({
   src: [
@@ -48,7 +51,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="-behavior">
-      <body className={`${montserrat.className} ${audiowide.variable}  antialiased bhor`}>
+      <body
+        className={`${montserrat.className} ${audiowide.variable} bhor antialiased selection:bg-white selection:text-black`}
+      >
         <SoundProvider>
           <AnimatedCursor
             color="255, 255, 255"
@@ -60,7 +65,10 @@ export default function RootLayout({
             <Navbar />
           </header>
           <BackgroundMusic />
-          <main className="px-5 sm:px-10 md:px-20 lg:px-32 max-w-[1920px] mx-auto">{children}</main>
+
+          <main className="mx-auto max-w-[1920px] px-5 sm:px-10 md:px-20 lg:px-32">
+            {children}
+          </main>
         </SoundProvider>
       </body>
     </html>

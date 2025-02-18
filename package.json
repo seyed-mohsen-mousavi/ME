@@ -14,6 +14,7 @@
     "@react-three/drei": "^9.121.5",
     "@react-three/fiber": "^8.17.14",
     "framer-motion": "^12.4.3",
+    "gsap": "^3.12.7",
     "howler": "^2.2.4",
     "leva": "^0.10.0",
     "motion": "^12.4.3",
@@ -22,6 +23,7 @@
     "react-animated-cursor": "^2.11.2",
     "react-dom": "^18",
     "react-icons": "^5.4.0",
+    "scrollmagic": "^2.0.8",
     "three": "^0.173.0"
   },
   "devDependencies": {
@@ -29,6 +31,7 @@
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
+    "@types/scrollmagic": "^2.0.8",
     "eslint": "^8",
     "eslint-config-next": "14.2.24",
     "postcss": "^8",
