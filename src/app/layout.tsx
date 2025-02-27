@@ -31,11 +31,11 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Seyed Mohsen Mousavi | Full-Stack Developer",
     description: `I specialize in developing modern and scalable web applications using React, Next.js, TypeScript, and more.`,
-    url: "https://your-website.com",
+    url: "https://xseyed.vercel.app/",
     siteName: "Seyed Mohsen Mousavi",
     images: [
       {
-        url: "/images/og-image.jpeg",
+        url: "/images/logo.jpeg",
         width: 1200,
         height: 630,
         alt: "Seyed Mohsen Mousavi Portfolio",
@@ -47,7 +47,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Seyed Mohsen Mousavi | Full-Stack Developer",
     description: `Experienced full-stack developer skilled in React, Next.js, TypeScript, and backend technologies.`,
-    images: ["/images/og-image.jpeg"],
+    images: ["/images/logo.jpeg"],
   },
 };
 
