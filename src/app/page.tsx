@@ -68,16 +68,16 @@ export default function Home() {
       </header>
       <div className="flex flex-col gap-20">
         {/* Header */}
-        <div className="flex w-full items-center justify-center pl-20 font-mod">
+        <div className="flex w-full items-center justify-center md:pl-20 font-mod mx-auto py-28 sm:py-0">
           <motion.h1
-            className="flex items-center text-4xl font-semibold transition-all ease-linear md:text-5xl lg:text-6xl 2xl:text-8xl"
+            className="flex items-center text-2xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-semibold transition-all ease-linear   2xl:text-8xl"
             initial={{ filter: "blur(20px)" }}
             animate={{ filter: "blur(0px)" }}
             transition={{ duration: 1.5, ease: "easeOut" }}
           >
             S.MOHSEN
             <motion.span
-              className="font-bold md:text-9xl lg:text-[18rem] 2xl:text-[22rem]"
+              className="font-bold text-6xl md:text-9xl lg:text-[18rem] 2xl:text-[22rem] px-2 md:px-1 lg:px-0"
               style={{ textShadow: "0 0 50px rgba(255, 255, 255, 0.7)" }}
               initial={{ opacity: 0, scale: 0.5 }}
               animate={{ opacity: 1, scale: 1 }}
@@ -89,14 +89,14 @@ export default function Home() {
           </motion.h1>
         </div>
         {/* Introduction Section */}
-        <div className="flex w-full justify-between">
+        <div className="flex sm:flex-row items-center flex-col w-full justify-between">
           <motion.div
             className="max-w-sm"
             initial={{ opacity: 0, x: -100 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, ease: "easeOut" }}
           >
-            <p className="mb-6 text-sm text-neutral-700">
+            <p className="mb-6 text-xs md:text-sm text-neutral-700">
               I am a full-stack developer with expertise in modern frameworks
               like React and Next.js. I have extensive experience working with
               various tools and technologies, including TypeScript, Tailwind
@@ -105,7 +105,7 @@ export default function Home() {
               principles, allows me to develop complex projects effectively and
               efficiently.
             </p>
-            <Link href={"/"} className="m-2 tracking-widest text-neutral-400">
+            <Link href={"/"} className="text-sm sm:text-base m-2 tracking-widest text-neutral-400">
               Need More
             </Link>
           </motion.div>
@@ -116,10 +116,10 @@ export default function Home() {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, ease: "easeOut" }}
           >
-            <Link href={"/"} className="m-2 tracking-widest text-neutral-400">
+            <Link href={"/"} className="text-sm sm:text-base m-2 tracking-widest text-neutral-400">
               Need More
             </Link>
-            <p className="mt-6 text-sm text-neutral-700">
+            <p className="mt-6 text-xs md:text-sm text-neutral-700">
               I am a full-stack developer with expertise in modern frameworks
               like React and Next.js. I have extensive experience working with
               various tools and technologies, including TypeScript, Tailwind
@@ -156,7 +156,7 @@ export default function Home() {
           <section>
             <div className="text-white">
               <div className="my-12 flex flex-col items-center md:my-24 md:flex-row">
-                <div className="flex w-full flex-col items-start justify-center p-8 lg:w-1/3">
+                <div className="flex w-full flex-col items-start justify-center md:p-8 lg:w-1/3">
                   <h1 className="tracking-loose py-2 font-mod text-3xl font-bold md:text-4xl">
                     *Actions speak louder than words
                   </h1>
@@ -176,7 +176,7 @@ export default function Home() {
                     View My Work
                   </Link>
                 </div>
-                <div className="mb-6 ml-0 mt-12 justify-center p-8 md:mb-0 md:ml-12 md:mt-0 lg:w-2/3">
+                <div className="hidden md:flex mb-6 ml-0 mt-12 justify-center p-8 md:mb-0 md:ml-12 md:mt-0 lg:w-2/3">
                   <div className="flex h-48 flex-wrap content-center items-center gap-20 lg:ml-20">
                     <motion.div
                       initial={{ filter: "blur(6px)" }}
@@ -238,7 +238,7 @@ export default function Home() {
             </div>
           </section>
 
-          <section className="flex flex-col gap-5 text-lg text-neutral-400 md:flex-row">
+          <section className="flex flex-col gap-5 md:text-lg text-neutral-400 md:flex-row text-sm ">
             <motion.p
               initial={{ filter: "blur(6px)" }}
               whileInView={{ filter: "blur(0px)" }}
@@ -312,10 +312,10 @@ export default function Home() {
                 <Icon className="absolute left-1/2 top-[44px] size-14 -translate-x-1/2" />
                 <CircularProgress
                   classNames={{
-                    svg: "w-36 h-36 drop-shadow-md",
+                    svg: "size-36 drop-shadow-md",
                     indicator: "stroke-white",
                     track: "stroke-white/10",
-                    value: "text-3xl font-semibold text-neutral-200 relative",
+                    value: "text-2xl md:text-3xl font-semibold text-neutral-200 relative",
                   }}
                   showValueLabel={true}
                   strokeWidth={4}

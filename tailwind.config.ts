@@ -1,3 +1,4 @@
+import { heroui } from "@heroui/theme";
 import type { Config } from "tailwindcss";
 
 const config: Config = {
@@ -5,6 +6,7 @@ const config: Config = {
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
+    "./node_modules/@heroui/theme/dist/components/(drawer|modal).js",
   ],
   theme: {
     extend: {
@@ -13,10 +15,11 @@ const config: Config = {
         foreground: "var(--foreground)",
       },
       fontFamily: {
-        mod: ['var(--font-audiowide)'],
+        mod: ["var(--font-audiowide)"],
       },
     },
   },
-  plugins: [],
+  darkMode: "class",
+  plugins: [heroui()],
 };
 export default config;

@@ -1,57 +1,108 @@
 "use client";
-import { motion } from "motion/react";
-import SoundButton, { ButtonType } from "./SoundButton";
-import { SpeakerWaveIcon, SpeakerXMarkIcon } from "@heroicons/react/24/outline";
-import { useSoundContext } from "@/context/SoundContext";
+import { HiOutlineMenuAlt3 } from "react-icons/hi";
+import {
+  Drawer,
+  DrawerContent,
+  DrawerHeader,
+  DrawerBody,
+  DrawerFooter,
+  Button,
+  useDisclosure,
+} from "@heroui/react";
+import { useState } from "react";
 
-export default function Navbar({ scrollToSection }: { scrollToSection: any }) {
-  const { isSoundOn, toggleSound } = useSoundContext();
-
+export default function Navbar({
+  scrollToSection,
+}: {
+  scrollToSection: (section: string) => void;
+}) {
+  const { isOpen, onOpen, onOpenChange } = useDisclosure();
   return (
-    <div className="mt-10 flex w-full items-center justify-between py-8">
+    <div className="fixed left-0 top-0 z-10 flex w-full flex-row-reverse items-center justify-between py-2 sm:static sm:py-8">
       <div>
-        <motion.button
-          initial={{ scale: 1 }}
-          whileHover={{ scale: 1.1 }}
-          whileTap={{ scale: 1 }}
-          className="rounded-full bg-white/20 p-4"
-          onClick={toggleSound}
+        <nav className={`hidden sm:block`}>
+          <ul className="flex items-center gap-10">
+            <li>
+              <button onClick={() => scrollToSection("about")}>About</button>
+            </li>
+            <li>
+              <button onClick={() => scrollToSection("skills")}>Skills</button>
+            </li>
+            <li>
+              <button onClick={() => scrollToSection("projects")}>
+                Projects
+              </button>
+            </li>
+          </ul>
+        </nav>
+        {/* <button
+          onClick={() => setShow(!show)}
+          className="m-2 rounded-full bg-white/40 p-2 backdrop-blur transition-all ease-linear sm:invisible sm:opacity-0"
         >
-          {isSoundOn ? (
-            <SpeakerWaveIcon className="size-5" />
-          ) : (
-            <SpeakerXMarkIcon className="size-5" />
-          )}
-        </motion.button>
+          <HiOutlineMenuAlt3 className="size-7" />
+        </button> */}
+        <Button
+          onPress={onOpen}
+          className="m-2 rounded-full bg-white/40 p-2 backdrop-blur transition-all ease-linear sm:invisible sm:opacity-0"
+        >
+          <HiOutlineMenuAlt3 className="size-7" />
+        </Button>
+        <Drawer
+          className="rounded-none sm:hidden"
+          isOpen={isOpen}
+          onOpenChange={onOpenChange}
+          backdrop="blur"
+        >
+          <DrawerContent>
+            {(onClose) => (
+              <>
+                <DrawerHeader className="flex flex-col gap-1">
+                  SEYED
+                </DrawerHeader>
+                <DrawerBody>
+                  <nav>
+                    <ul className="flex flex-col items-center gap-10">
+                      <li className="w-full text-right text-lg font-bold">
+                        <button
+                          className="h-full w-full"
+                          onClick={() => {
+                            scrollToSection("about");
+                            onClose();
+                          }}
+                        >
+                          About
+                        </button>
+                      </li>
+                      <li className="w-full text-right text-lg font-bold">
+                        <button
+                          className="h-full w-full"
+                          onClick={() => {
+                            scrollToSection("skills");
+                            onClose();
+                          }}
+                        >
+                          Skills
+                        </button>
+                      </li>
+                      <li className="w-full text-right text-lg font-bold">
+                        <button
+                          className="h-full w-full"
+                          onClick={() => {
+                            scrollToSection("projects");
+                            onClose();
+                          }}
+                        >
+                          Projects
+                        </button>
+                      </li>
+                    </ul>
+                  </nav>
+                </DrawerBody>
+              </>
+            )}
+          </DrawerContent>
+        </Drawer>
       </div>
-      <nav>
-        <ul className="flex items-center gap-10">
-          <li>
-            <SoundButton
-              onClick={() => scrollToSection("about")}
-              sound={ButtonType.Click}
-            >
-              About
-            </SoundButton>
-          </li>
-          <li>
-            <SoundButton
-              onClick={() => scrollToSection("skills")}
-              sound={ButtonType.Click}
-            >
-              Skills
-            </SoundButton>
-          </li>
-          <li>
-            <SoundButton
-              onClick={() => scrollToSection("projects")}
-              sound={ButtonType.Click}
-            >
-              Projects
-            </SoundButton>
-          </li>
-        </ul>
-      </nav>
     </div>
   );
 }

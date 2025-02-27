@@ -1,9 +1,8 @@
-import BackgroundMusic from "@/components/BackgroundMusic";
-import { SoundProvider } from "@/context/SoundContext";
 import { Metadata } from "next";
 import "./globals.css";
 import AnimatedCursor from "react-animated-cursor";
 import localFont from "next/font/local";
+import { HeroUIProvider } from "@heroui/react";
 
 export const metadata: Metadata = {
   title: "Seyed Mohsen Mousavi | Full-Stack Developer",
@@ -84,24 +83,21 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className="-behavior">
+    <html lang="en" className="behavior">
       <body
-        className={`${montserrat.className} ${audiowide.variable} bhor antialiased selection:bg-white selection:text-black`}
+        className={`${montserrat.className} ${audiowide.variable} dark antialiased selection:bg-white selection:text-black`}
       >
-        <SoundProvider>
-          <AnimatedCursor
-            color="255, 255, 255"
-            outerStyle={{
-              boxShadow: "0px 0px 10px 2px rgba(255, 255, 255, 0.7)",
-            }}
-          />
-
-          {/* <BackgroundMusic /> */}
-
+        <AnimatedCursor
+          color="255, 255, 255"
+          outerStyle={{
+            boxShadow: "0px 0px 10px 2px rgba(255, 255, 255, 0.7)",
+          }}
+        />
+        <HeroUIProvider>
           <section className="mx-auto max-w-[1920px] px-5 sm:px-10 md:px-20 lg:px-32">
             {children}
           </section>
-        </SoundProvider>
+        </HeroUIProvider>
       </body>
     </html>
   );
