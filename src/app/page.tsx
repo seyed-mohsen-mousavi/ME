@@ -68,16 +68,16 @@ export default function Home() {
       </header>
       <div className="flex flex-col gap-20">
         {/* Header */}
-        <div className="flex w-full items-center justify-center md:pl-20 font-mod mx-auto py-28 sm:py-0">
+        <div className="mx-auto flex w-full items-center justify-center py-28 font-mod sm:py-0 md:pl-20">
           <motion.h1
-            className="flex items-center text-2xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-semibold transition-all ease-linear   2xl:text-8xl"
+            className="flex items-center text-2xl font-semibold transition-all ease-linear sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl"
             initial={{ filter: "blur(20px)" }}
             animate={{ filter: "blur(0px)" }}
             transition={{ duration: 1.5, ease: "easeOut" }}
           >
             S.MOHSEN
             <motion.span
-              className="font-bold text-6xl md:text-9xl lg:text-[18rem] 2xl:text-[22rem] px-2 md:px-1 lg:px-0"
+              className="px-2 text-6xl font-bold md:px-1 md:text-9xl lg:px-0 lg:text-[18rem] 2xl:text-[22rem]"
               style={{ textShadow: "0 0 50px rgba(255, 255, 255, 0.7)" }}
               initial={{ opacity: 0, scale: 0.5 }}
               animate={{ opacity: 1, scale: 1 }}
@@ -89,14 +89,14 @@ export default function Home() {
           </motion.h1>
         </div>
         {/* Introduction Section */}
-        <div className="flex sm:flex-row items-center flex-col w-full justify-between">
+        <div className="flex w-full flex-col items-center justify-between sm:flex-row">
           <motion.div
             className="max-w-sm"
             initial={{ opacity: 0, x: -100 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, ease: "easeOut" }}
           >
-            <p className="mb-6 text-xs md:text-sm text-neutral-700">
+            <p className="mb-6 text-xs text-neutral-700 md:text-sm">
               I am a full-stack developer with expertise in modern frameworks
               like React and Next.js. I have extensive experience working with
               various tools and technologies, including TypeScript, Tailwind
@@ -105,7 +105,10 @@ export default function Home() {
               principles, allows me to develop complex projects effectively and
               efficiently.
             </p>
-            <Link href={"/"} className="text-sm sm:text-base m-2 tracking-widest text-neutral-400">
+            <Link
+              href={"/"}
+              className="m-2 text-sm tracking-widest text-neutral-400 sm:text-base"
+            >
               Need More
             </Link>
           </motion.div>
@@ -116,10 +119,13 @@ export default function Home() {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, ease: "easeOut" }}
           >
-            <Link href={"/"} className="text-sm sm:text-base m-2 tracking-widest text-neutral-400">
+            <Link
+              href={"/"}
+              className="m-2 text-sm tracking-widest text-neutral-400 sm:text-base"
+            >
               Need More
             </Link>
-            <p className="mt-6 text-xs md:text-sm text-neutral-700">
+            <p className="mt-6 text-xs text-neutral-700 md:text-sm">
               I am a full-stack developer with expertise in modern frameworks
               like React and Next.js. I have extensive experience working with
               various tools and technologies, including TypeScript, Tailwind
@@ -176,7 +182,7 @@ export default function Home() {
                     View My Work
                   </Link>
                 </div>
-                <div className="hidden md:flex mb-6 ml-0 mt-12 justify-center p-8 md:mb-0 md:ml-12 md:mt-0 lg:w-2/3">
+                <div className="mb-6 ml-0 mt-12 hidden justify-center p-8 md:mb-0 md:ml-12 md:mt-0 md:flex lg:w-2/3">
                   <div className="flex h-48 flex-wrap content-center items-center gap-20 lg:ml-20">
                     <motion.div
                       initial={{ filter: "blur(6px)" }}
@@ -189,6 +195,7 @@ export default function Home() {
                       className="relative h-72 w-40 -rotate-[25deg] overflow-hidden rounded-full"
                     >
                       <Image
+                        unoptimized
                         src={"/images/pic2.jpeg"}
                         alt="About | S.mohsen image 1"
                         fill
@@ -207,6 +214,7 @@ export default function Home() {
                       className="relative h-[28rem] w-60 -rotate-[25deg] overflow-hidden rounded-full"
                     >
                       <Image
+                        unoptimized
                         src={"/images/pic1.jpg"}
                         alt="About | S.mohsen image 2"
                         fill
@@ -225,6 +233,7 @@ export default function Home() {
                       className="relative h-72 w-40 -rotate-[25deg] overflow-hidden rounded-full"
                     >
                       <Image
+                        unoptimized
                         src={"/images/pic6.jpg"}
                         alt="About | S.mohsen image 3"
                         fill
@@ -238,7 +247,7 @@ export default function Home() {
             </div>
           </section>
 
-          <section className="flex flex-col gap-5 md:text-lg text-neutral-400 md:flex-row text-sm ">
+          <section className="flex flex-col gap-5 text-sm text-neutral-400 md:flex-row md:text-lg">
             <motion.p
               initial={{ filter: "blur(6px)" }}
               whileInView={{ filter: "blur(0px)" }}
@@ -315,7 +324,8 @@ export default function Home() {
                     svg: "size-36 drop-shadow-md",
                     indicator: "stroke-white",
                     track: "stroke-white/10",
-                    value: "text-2xl md:text-3xl font-semibold text-neutral-200 relative",
+                    value:
+                      "text-2xl md:text-3xl font-semibold text-neutral-200 relative",
                   }}
                   showValueLabel={true}
                   strokeWidth={4}
@@ -342,6 +352,7 @@ export default function Home() {
               <p></p>
               <Link href={"https://app.goldencheat.ir/"}>
                 <Image
+                  unoptimized
                   src={"/images/p-golden.png"}
                   alt=""
                   width={200}
@@ -370,6 +381,7 @@ export default function Home() {
               </Link>
               <Link href={"https://movielife.ir/"}>
                 <Image
+                  unoptimized
                   src={"/images/p-movielife.png"}
                   alt=""
                   width={200}
@@ -399,6 +411,7 @@ export default function Home() {
               </Link>
               <Link href={"https://iranhotels.vercel.app/"}>
                 <Image
+                  unoptimized
                   src={"/images/p-iranhotels.png"}
                   alt=""
                   width={200}
@@ -427,6 +440,7 @@ export default function Home() {
               </Link>
               <Link href={"https://seyed-mohsen-mousavi.github.io/Rick-Morty/"}>
                 <Image
+                  unoptimized
                   src={"/images/p-rick.png"}
                   alt=""
                   width={200}
