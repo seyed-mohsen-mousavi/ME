@@ -353,7 +353,7 @@ export default function Home() {
               <Link href={"https://app.goldencheat.ir/"}>
                 <Image
                   unoptimized
-                  src={"/images/p-golden.png"}
+                  src={"/images/p-golden.jpg"}
                   alt=""
                   width={200}
                   height={300}
@@ -382,7 +382,7 @@ export default function Home() {
               <Link href={"https://movielife.ir/"}>
                 <Image
                   unoptimized
-                  src={"/images/p-movielife.png"}
+                  src={"/images/p-movielife.jpg"}
                   alt=""
                   width={200}
                   height={300}
@@ -412,7 +412,7 @@ export default function Home() {
               <Link href={"https://iranhotels.vercel.app/"}>
                 <Image
                   unoptimized
-                  src={"/images/p-iranhotels.png"}
+                  src={"/images/p-iranhotels.jpg"}
                   alt=""
                   width={200}
                   height={300}
@@ -441,7 +441,7 @@ export default function Home() {
               <Link href={"https://seyed-mohsen-mousavi.github.io/Rick-Morty/"}>
                 <Image
                   unoptimized
-                  src={"/images/p-rick.png"}
+                  src={"/images/p-rick.jpg"}
                   alt=""
                   width={200}
                   height={300}
@@ -450,8 +450,7 @@ export default function Home() {
               </Link>
               <div className="absolute -bottom-4 left-3 flex w-full p-3">
                 <span className="flex items-center gap-4 rounded-t-xl bg-white px-4 py-1.5 text-black backdrop-blur-md">
-                  <SiNextdotjs className="size-5" />{" "}
-                  <FaNode className="size-7" />{" "}
+                  <FaReact className="size-5" />{" "}
                   <RiTailwindCssFill className="size-5" />{" "}
                   <FaGitAlt className="size-5" />
                 </span>
