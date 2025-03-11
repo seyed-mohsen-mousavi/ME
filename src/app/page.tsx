@@ -15,12 +15,21 @@ import {
 } from "react-icons/fa";
 import { SiNextdotjs, SiAdobephotoshop, SiMongodb } from "react-icons/si";
 import { BiLogoTypescript, BiLogoPostgresql } from "react-icons/bi";
-import { CircularProgress } from "@heroui/react";
+import {
+  Button,
+  CircularProgress,
+  Modal,
+  ModalBody,
+  ModalContent,
+  ModalFooter,
+  ModalHeader,
+  useDisclosure,
+} from "@heroui/react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { GiArmoredBoomerang } from "react-icons/gi";
 import Navbar from "@/components/Navbar";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 
 // ---------------------------------
 const skillData = [
@@ -34,6 +43,11 @@ const skillData = [
   { icon: FaGitAlt, value: 88 },
   { icon: RiTailwindCssFill, value: 100 },
 ];
+import "swiper/css/effect-cards";
+import "swiper/css/effect-cube";
+import "swiper/css/effect-fade";
+import "swiper/css/effect-flip";
+import "swiper/css/effect-creative";
 // ---------------------------------
 const socialLinks = [
   { icon: RiTelegram2Fill, href: "https://t.me/XSeyed" },
@@ -320,6 +334,7 @@ export default function Home() {
               <div className="head-text relative" key={index}>
                 <Icon className="absolute left-1/2 top-[44px] size-14 -translate-x-1/2" />
                 <CircularProgress
+                  aria-label={`مهارت با  ${value} درصد`}
                   classNames={{
                     svg: "size-36 drop-shadow-md",
                     indicator: "stroke-white",
@@ -336,131 +351,7 @@ export default function Home() {
           </div>
         </div>
         {/* Projects */}
-        <div ref={projectsRef} id="projects" className="flex flex-col">
-          <h2 className="head-text my-10">Projects</h2>
-          <div className="mb-20 grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4">
-            <div className="group relative sm:max-w-96">
-              <Link
-                href={"https://app.goldencheat.ir/  "}
-                style={{
-                  textShadow: "-25px -0px 50px rgba(255, 255, 255, 0.7)",
-                }}
-                className="font-mod text-lg font-bold text-neutral-100"
-              >
-                App.GoldenCheat
-              </Link>
-              <p></p>
-              <Link href={"https://app.goldencheat.ir/"}>
-                <Image
-                  unoptimized
-                  src={"/images/p-golden.jpg"}
-                  alt=""
-                  width={200}
-                  height={300}
-                  className="mt-1.5 aspect-video h-52 w-full rounded-2xl object-cover object-top shadow-[-3px_20px_0px_0px_rgb(255,_255,_255)] transition-all duration-500 ease-linear hover:object-bottom group-hover:grayscale-[0.5] sm:w-96"
-                />
-              </Link>
-              <div className="absolute -bottom-4 left-3 flex w-full p-3">
-                <span className="flex items-center gap-4 rounded-t-xl bg-white px-4 py-1.5 text-black backdrop-blur-md">
-                  <SiNextdotjs className="size-5" />{" "}
-                  <FaNode className="size-7" />{" "}
-                  <RiTailwindCssFill className="size-5" />{" "}
-                  <FaGitAlt className="size-5" />
-                </span>
-              </div>
-            </div>
-            <div className="group relative sm:max-w-96">
-              <Link
-                href={"https://movielife.ir/"}
-                style={{
-                  textShadow: "-25px -0px 50px rgba(255, 255, 255, 0.7)",
-                }}
-                className="font-mod text-lg font-bold text-neutral-100"
-              >
-                MovieLife
-              </Link>
-              <Link href={"https://movielife.ir/"}>
-                <Image
-                  unoptimized
-                  src={"/images/p-movielife.jpg"}
-                  alt=""
-                  width={200}
-                  height={300}
-                  className="mt-1.5 aspect-video h-52 w-full rounded-2xl object-cover object-top shadow-[-3px_20px_0px_0px_rgb(255,_255,_255)] transition-all duration-1000 ease-linear hover:object-bottom group-hover:grayscale-[0.5] sm:w-96"
-                />
-              </Link>
-              <div className="absolute -bottom-4 left-3 flex w-full p-3">
-                <span className="flex items-center gap-4 rounded-t-xl bg-white px-4 py-1.5 text-black backdrop-blur-md">
-                  <SiNextdotjs className="size-5" />{" "}
-                  <FaNode className="size-7" />{" "}
-                  <BiLogoPostgresql className="size-5" />
-                  <BiLogoTypescript className="size-6" />
-                  <RiTailwindCssFill className="size-5" />{" "}
-                </span>
-              </div>
-            </div>
-            <div className="group relative sm:max-w-96">
-              <Link
-                href={"https://iranhotels.vercel.app/"}
-                style={{
-                  textShadow: "-25px -0px 50px rgba(255, 255, 255, 0.7)",
-                }}
-                className="font-mod text-lg font-bold text-neutral-100"
-              >
-                IRAN Hotels
-              </Link>
-              <Link href={"https://iranhotels.vercel.app/"}>
-                <Image
-                  unoptimized
-                  src={"/images/p-iranhotels.jpg"}
-                  alt=""
-                  width={200}
-                  height={300}
-                  className="mt-1.5 aspect-video h-52 w-full rounded-2xl object-cover object-top shadow-[-3px_20px_0px_0px_rgb(255,_255,_255)] transition-all duration-500 ease-linear hover:object-bottom group-hover:grayscale-[0.5] sm:w-96"
-                />
-              </Link>
-              <div className="absolute -bottom-4 left-3 flex w-full p-3">
-                <span className="flex items-center gap-4 rounded-t-xl bg-white px-4 py-1.5 text-black backdrop-blur-md">
-                  <FaReact className="size-5" />
-                  <RiTailwindCssFill className="size-5" />{" "}
-                  <FaGitAlt className="size-5" />
-                  <RiRoadMapLine className="size-5" />
-                </span>
-              </div>
-            </div>
-            <div className="group relative sm:max-w-96">
-              <Link
-                href={"https://seyed-mohsen-mousavi.github.io/Rick-Morty/"}
-                style={{
-                  textShadow: "-25px -0px 50px rgba(255, 255, 255, 0.7)",
-                }}
-                className="flex items-center font-mod text-lg font-bold text-neutral-100"
-              >
-                Rick And Morty
-              </Link>
-              <Link href={"https://seyed-mohsen-mousavi.github.io/Rick-Morty/"}>
-                <Image
-                  unoptimized
-                  src={"/images/p-rick.jpg"}
-                  alt=""
-                  width={200}
-                  height={300}
-                  className="mt-1.5 aspect-video h-52 w-full rounded-2xl object-cover object-top shadow-[-3px_20px_0px_0px_rgb(255,_255,_255)] transition-all duration-500 ease-linear hover:object-bottom group-hover:grayscale-[0.5] sm:w-96"
-                />
-              </Link>
-              <div className="absolute -bottom-4 left-3 flex w-full p-3">
-                <span className="flex items-center gap-4 rounded-t-xl bg-white px-4 py-1.5 text-black backdrop-blur-md">
-                  <FaReact className="size-5" />{" "}
-                  <RiTailwindCssFill className="size-5" />{" "}
-                  <FaGitAlt className="size-5" />
-                </span>
-              </div>
-            </div>
-          </div>
-          <button className="mx-auto flex items-center gap-2 rounded-xl border px-5 py-3 font-mod text-lg font-semibold ring-1 ring-white/15 transition-all ease-in-out hover:ring-4 active:ring-8">
-            See More <GiArmoredBoomerang className="size-6" />
-          </button>
-        </div>
+        <Projects projectsRef={projectsRef} />
         <hr className="-mb-5 shadow-2xl shadow-white blur-sm" />
         <footer className="mx-auto !mb-4 font-mod">
           <span className="tetxt-sm text-neutral-400">
@@ -470,5 +361,171 @@ export default function Home() {
         </footer>{" "}
       </div>
     </>
+  );
+}
+const projects = [
+  {
+    id: 1,
+    name: "App.GoldenCheat",
+    link: "https://app.goldencheat.ir/",
+    image: "/images/p-golden.jpg",
+    technologies: [
+      { icon: <SiNextdotjs className="size-5" />, name: "Next.js" },
+      { icon: <FaNode className="size-7" />, name: "Node.js" },
+      { icon: <RiTailwindCssFill className="size-5" />, name: "Tailwind CSS" },
+      { icon: <FaGitAlt className="size-5" />, name: "Git" },
+    ],
+  },
+  {
+    id: 2,
+    name: "MovieLife",
+    link: "https://movielife.ir/",
+    image: "/images/p-movielife.jpg",
+    technologies: [
+      { icon: <SiNextdotjs className="size-5" />, name: "Next.js" },
+      { icon: <FaNode className="size-7" />, name: "Node.js" },
+      { icon: <BiLogoPostgresql className="size-5" />, name: "PostgreSQL" },
+      { icon: <BiLogoTypescript className="size-6" />, name: "TypeScript" },
+      { icon: <RiTailwindCssFill className="size-5" />, name: "Tailwind CSS" },
+    ],
+  },
+  {
+    id: 3,
+    name: "IRAN Hotels",
+    link: "https://iranhotels.vercel.app/",
+    image: "/images/p-iranhotels.jpg",
+    technologies: [
+      { icon: <FaReact className="size-5" />, name: "React" },
+      { icon: <RiTailwindCssFill className="size-5" />, name: "Tailwind CSS" },
+      { icon: <FaGitAlt className="size-5" />, name: "Git" },
+      { icon: <RiRoadMapLine className="size-5" />, name: "Roadmap" },
+    ],
+  },
+  {
+    id: 4,
+    name: "Rick And Morty",
+    link: "https://seyed-mohsen-mousavi.github.io/Rick-Morty/",
+    image: "/images/p-rick.jpg",
+    technologies: [
+      { icon: <FaReact className="size-5" />, name: "React" },
+      { icon: <RiTailwindCssFill className="size-5" />, name: "Tailwind CSS" },
+      { icon: <FaGitAlt className="size-5" />, name: "Git" },
+    ],
+  },
+];
+
+function Projects({
+  projectsRef,
+}: {
+  projectsRef: React.RefObject<HTMLDivElement>;
+}) {
+  const { isOpen, onOpen, onOpenChange } = useDisclosure();
+  const [selected, setSelected] = useState<any>({});
+  return (
+    <div ref={projectsRef} id="projects" className="flex flex-col">
+      <h2 className="head-text my-10">Projects</h2>
+      <div className="mb-20 grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4">
+        {projects.map((project, index) => (
+          <div
+            onClick={() => {
+              setSelected(project);
+              onOpen();
+            }}
+            key={index}
+            className="group relative sm:max-w-96"
+          >
+            <div
+              style={{
+                textShadow: "-25px -0px 50px rgba(255, 255, 255, 0.7)",
+              }}
+              className="font-mod text-lg font-bold text-neutral-100"
+            >
+              {project.name}
+            </div>
+            <div>
+              <Image
+                unoptimized
+                src={project.image}
+                alt={project.name}
+                width={200}
+                height={300}
+                className="mt-1.5 aspect-video h-52 w-full rounded-2xl object-cover object-top shadow-[-3px_20px_0px_0px_rgb(255,_255,_255)] transition-all duration-500 ease-linear hover:object-bottom group-hover:grayscale-[0.5] sm:w-96"
+              />
+            </div>
+            <div className="absolute -bottom-4 left-3 flex w-full p-3">
+              <span className="flex items-center gap-4 rounded-t-xl bg-white px-4 py-1.5 text-black backdrop-blur-md">
+                {project.technologies.map((tech, i) => (
+                  <span key={i} title={tech.name}>
+                    {tech.icon}
+                  </span>
+                ))}
+              </span>
+            </div>
+          </div>
+        ))}
+      </div>
+      <Modal
+        className="relative border backdrop-blur-sm w-full sm:w-auto"
+        isOpen={isOpen}
+        onOpenChange={onOpenChange}
+      >
+        <ModalContent>
+          {(onClose) => (
+            <>
+              <Image
+                fill
+                unoptimized
+                src={selected.image}
+                alt={selected.name}
+                className="z-0 mt-1.5 w-full rotate-45 rounded-2xl object-cover opacity-75 blur-md transition-all duration-500 ease-linear"
+              />
+              <ModalHeader className="z-10 flex flex-col gap-1">
+                <h2 className="text-xl font-bold">{selected.name}</h2>
+              </ModalHeader>
+              <ModalBody className="z-10 font-semibold">
+                <h3 className="z-0 font-mod text-lg">Challenges</h3>
+                <p className="mb-2">
+                  {selected.challenges ||
+                    "This project had various technical and design challenges that were overcome."}
+                </p>
+                <h3 className="font-mod text-lg">Description</h3>
+                <p>
+                  {selected.description ||
+                    "A brief description of the project and its main features."}
+                </p>
+                <h3 className="font-mod text-lg">Technologies</h3>
+                <div className="flex flex-wrap gap-2 text-xs sm:text-sm">
+                  {selected.technologies?.map((tech, i) => (
+                    <span
+                      key={i}
+                      title={tech.name}
+                      className="flex items-center gap-1"
+                    >
+                      {tech.icon}
+                      <span>{tech.name}</span>
+                    </span>
+                  ))}
+                </div>
+              </ModalBody>
+              <ModalFooter>
+                {selected.link && (
+                  <Link
+                    href={selected.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="from-white/50  to-zinc-500/50 underline underline-offset-4 bg-gradient-to-br hover:opacity-95 transition-all ease-linear px-3 py-2 rounded-md z-10"
+                  >
+                    Visit Site
+                  </Link>
+                )}
+              </ModalFooter>
+            </>
+          )}
+        </ModalContent>
+      </Modal>
+      <button className="mx-auto flex items-center gap-2 rounded-xl border px-5 py-3 font-mod text-lg font-semibold ring-1 ring-white/15 transition-all ease-in-out hover:ring-4 active:ring-8">
+        See More <GiArmoredBoomerang className="size-6" />
+      </button>
+    </div>
   );
 }
