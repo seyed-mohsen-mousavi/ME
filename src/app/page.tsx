@@ -15,8 +15,8 @@ import {
 } from "react-icons/fa";
 import { SiNextdotjs, SiAdobephotoshop, SiMongodb } from "react-icons/si";
 import { BiLogoTypescript, BiLogoPostgresql, BiLink } from "react-icons/bi";
+
 import {
-  Button,
   CircularProgress,
   Modal,
   ModalBody,
