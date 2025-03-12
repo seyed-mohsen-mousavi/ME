@@ -14,7 +14,7 @@ import {
   FaGitAlt,
 } from "react-icons/fa";
 import { SiNextdotjs, SiAdobephotoshop, SiMongodb } from "react-icons/si";
-import { BiLogoTypescript, BiLogoPostgresql } from "react-icons/bi";
+import { BiLogoTypescript, BiLogoPostgresql, BiLink } from "react-icons/bi";
 import {
   Button,
   CircularProgress,
@@ -375,6 +375,10 @@ const projects = [
       { icon: <RiTailwindCssFill className="size-5" />, name: "Tailwind CSS" },
       { icon: <FaGitAlt className="size-5" />, name: "Git" },
     ],
+    description:
+      "A complete and complex project with an admin panel, dashboard pages for users, and excellent responsiveness.",
+    challenges: `Bilingual site, Google login and registration,
+Modern design of the chat page for ticketing, and handling various user interactions.`,
   },
   {
     id: 2,
@@ -388,6 +392,9 @@ const projects = [
       { icon: <BiLogoTypescript className="size-6" />, name: "TypeScript" },
       { icon: <RiTailwindCssFill className="size-5" />, name: "Tailwind CSS" },
     ],
+    description:
+      "A dynamic movie site with a modern UI, supporting data fetching and advanced search features.",
+    challenges: `Optimizing performance, implementing search and filtering, and integrating movie databases with responsive design.`,
   },
   {
     id: 3,
@@ -400,6 +407,9 @@ const projects = [
       { icon: <FaGitAlt className="size-5" />, name: "Git" },
       { icon: <RiRoadMapLine className="size-5" />, name: "Roadmap" },
     ],
+    description:
+      "A hotel booking platform showcasing various accommodations with a clean and user-friendly interface.",
+    challenges: `Implementing hotel filtering, responsive layout, and map integration.`,
   },
   {
     id: 4,
@@ -411,6 +421,9 @@ const projects = [
       { icon: <RiTailwindCssFill className="size-5" />, name: "Tailwind CSS" },
       { icon: <FaGitAlt className="size-5" />, name: "Git" },
     ],
+    description:
+      "A fun project to explore Rick and Morty characters using an open API, featuring character details and filtering.",
+    challenges: `Fetching data from the Rick and Morty API and implementing a simple and responsive UI.`,
   },
 ];
 
@@ -465,7 +478,7 @@ function Projects({
         ))}
       </div>
       <Modal
-        className="relative border backdrop-blur-sm w-full sm:w-auto"
+        className="relative w-full border border-zinc-400/50 backdrop-blur-sm sm:w-auto"
         isOpen={isOpen}
         onOpenChange={onOpenChange}
       >
@@ -477,23 +490,25 @@ function Projects({
                 unoptimized
                 src={selected.image}
                 alt={selected.name}
-                className="z-0 mt-1.5 w-full rotate-45 rounded-2xl object-cover opacity-75 blur-md transition-all duration-500 ease-linear"
+                className="z-0 mt-1.5 w-full rounded-2xl object-cover opacity-50 blur-md brightness-50 transition-all duration-500 ease-linear"
               />
-              <ModalHeader className="z-10 flex flex-col gap-1">
+              <ModalHeader className="z-10">
                 <h2 className="text-xl font-bold">{selected.name}</h2>
               </ModalHeader>
-              <ModalBody className="z-10 font-semibold">
-                <h3 className="z-0 font-mod text-lg">Challenges</h3>
-                <p className="mb-2">
-                  {selected.challenges ||
-                    "This project had various technical and design challenges that were overcome."}
-                </p>
-                <h3 className="font-mod text-lg">Description</h3>
+              <ModalBody className="z-10">
+                <h3 className="font-mod text-lg font-semibold">Description</h3>
                 <p>
                   {selected.description ||
                     "A brief description of the project and its main features."}
                 </p>
-                <h3 className="font-mod text-lg">Technologies</h3>
+                <h3 className="z-0 font-mod text-lg font-semibold">
+                  Challenges
+                </h3>
+                <p className="mb-2">
+                  {selected.challenges ||
+                    "This project had various technical and design challenges that were overcome."}
+                </p>
+                <h3 className="font-mod text-lg font-semibold">Technologies</h3>
                 <div className="flex flex-wrap gap-2 text-xs sm:text-sm">
                   {selected.technologies?.map((tech, i) => (
                     <span
@@ -513,9 +528,10 @@ function Projects({
                     href={selected.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="from-white/50  to-zinc-500/50 underline underline-offset-4 bg-gradient-to-br hover:opacity-95 transition-all ease-linear px-3 py-2 rounded-md z-10"
+                    className="z-10 flex items-center gap-2 rounded-xl border px-4 py-3 font-mod text-sm font-semibold ring-1 ring-white/15 transition-all ease-in-out hover:ring-4 active:ring-8"
                   >
                     Visit Site
+                    <BiLink className="size-5" />
                   </Link>
                 )}
               </ModalFooter>
