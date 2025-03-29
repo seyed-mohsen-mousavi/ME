@@ -173,10 +173,10 @@ export default function Home() {
         <div ref={aboutRef} id="about">
           <h2 className="head-text my-10">About ME</h2>
 
-          <section>
+          {/* <section>
             <div className="text-white">
-              <div className="my-12 flex flex-col items-center md:my-24 md:flex-row">
-                <div className="flex w-full flex-col items-start justify-center md:p-8 lg:w-1/3">
+              <div className="my-12 flex flex-col items-center md:my-24 xl:flex-row">
+                <div className="flex w-full flex-col items-start justify-center md:p-8 xl:w-1/3">
                   <h1 className="tracking-loose py-2 font-mod text-3xl font-bold md:text-4xl">
                     *Actions speak louder than words
                   </h1>
@@ -196,8 +196,8 @@ export default function Home() {
                     View My Work
                   </Link>
                 </div>
-                <div className="mb-6 ml-0 mt-12 hidden justify-center p-8 md:mb-0 md:ml-12 md:mt-0 md:flex lg:w-2/3">
-                  <div className="flex h-48 flex-wrap content-center items-center gap-20 lg:ml-20">
+                <div className="mb-6 ml-0 mt-12 hidden justify-center p-8 xl:mb-0 xl:ml-12 xl:mt-0 xl:flex xl:w-2/3">
+                  <div className="flex h-48 content-center items-center gap-20 lg:ml-20">
                     <motion.div
                       initial={{ filter: "blur(6px)" }}
                       whileInView={{ filter: "blur(0px)" }}
@@ -225,7 +225,7 @@ export default function Home() {
                         ease: "easeOut",
                       }}
                       viewport={{ once: true }}
-                      className="relative h-[28rem] w-60 -rotate-[25deg] overflow-hidden rounded-full"
+                      className="relative h-96 w-60 -rotate-[25deg] overflow-hidden rounded-full 2xl:h-[28rem]"
                     >
                       <Image
                         unoptimized
@@ -244,7 +244,7 @@ export default function Home() {
                         ease: "easeOut",
                       }}
                       viewport={{ once: true }}
-                      className="relative h-72 w-40 -rotate-[25deg] overflow-hidden rounded-full"
+                      className="relative h-72 w-40 -rotate-[25deg] overflow-hidden rounded-full xl:hidden 2xl:block"
                     >
                       <Image
                         unoptimized
@@ -259,8 +259,36 @@ export default function Home() {
                 </div>
               </div>
             </div>
+          </section> */}
+          <section>
+            <div className="bg-black py-8 text-white">
+              <div className="mx-auto my-12 flex flex-col items-start xl:my-24 xl:flex-row">
+                <div className="sticky mt-2 flex w-full flex-col xl:top-36 xl:mt-12 xl:w-1/3">
+                  <div className="flex w-full flex-col items-start justify-center">
+                    <h1 className="tracking-loose py-2 font-mod text-3xl font-bold md:text-4xl">
+                      *Actions speak louder than words
+                    </h1>
+                    <h2 className="mb-2 text-xl leading-relaxed sm:text-2xl md:leading-snug">
+                      Full-stack Developer & UI/UX Designer
+                    </h2>
+                    <p className="mb-4 text-sm text-gray-50 md:text-base">
+                      I specialize in creating seamless digital experiences by
+                      combining modern UI designs with robust backend solutions.
+                      Explore my portfolio to see how I bring creativity and
+                      technology together.
+                    </p>
+                    <Link
+                      href={"/#projects"}
+                      className="flex items-center gap-2 rounded-xl border px-5 py-3 font-mod text-lg font-semibold ring-1 ring-white/15 transition-all ease-in-out hover:ring-4 active:ring-8"
+                    >
+                      View My Work
+                    </Link>
+                  </div>
+                </div>
+                <Timeline />
+              </div>
+            </div>
           </section>
-
           <section className="flex flex-col gap-5 text-sm text-neutral-400 md:flex-row md:text-lg">
             <motion.p
               initial={{ filter: "blur(6px)" }}
@@ -363,7 +391,17 @@ export default function Home() {
     </>
   );
 }
-const projects = [
+
+interface Project {
+  id: number;
+  name: string;
+  link: string;
+  image: string;
+  technologies: Technology[];
+  description: string;
+  challenges: string;
+}
+const projects: Project[] = [
   {
     id: 1,
     name: "App.GoldenCheat",
@@ -426,6 +464,10 @@ Modern design of the chat page for ticketing, and handling various user interact
     challenges: `Fetching data from the Rick and Morty API and implementing a simple and responsive UI.`,
   },
 ];
+interface Technology {
+  icon: JSX.Element;
+  name: string;
+}
 
 function Projects({
   projectsRef,
@@ -433,7 +475,7 @@ function Projects({
   projectsRef: React.RefObject<HTMLDivElement>;
 }) {
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
-  const [selected, setSelected] = useState<any>({});
+  const [selected, setSelected] = useState<Project | null>(null);
   return (
     <div ref={projectsRef} id="projects" className="flex flex-col">
       <h2 className="head-text my-10">Projects</h2>
@@ -468,8 +510,8 @@ function Projects({
             <div className="absolute -bottom-4 left-3 flex w-full p-3">
               <span className="flex items-center gap-4 rounded-t-xl bg-white px-4 py-1.5 text-black backdrop-blur-md">
                 {project.technologies.map((tech, i) => (
-                  <span key={i} title={tech.name}>
-                    {tech.icon}
+                  <span key={i} title={tech?.name}>
+                    {tech?.icon}
                   </span>
                 ))}
               </span>
@@ -478,39 +520,39 @@ function Projects({
         ))}
       </div>
       <Modal
-        className="relative w-full border border-zinc-400/50 backdrop-blur-sm sm:w-auto"
+        className="relative w-screen border border-zinc-400/50 backdrop-blur-sm sm:w-auto"
         isOpen={isOpen}
         onOpenChange={onOpenChange}
       >
         <ModalContent>
-          {(onClose) => (
+          {() => (
             <>
               <Image
                 fill
                 unoptimized
-                src={selected.image}
-                alt={selected.name}
+                src={selected?.image ? selected?.image : ""}
+                alt={selected?.name ? selected?.name : "Project"}
                 className="z-0 mt-1.5 w-full rounded-2xl object-cover opacity-50 blur-md brightness-50 transition-all duration-500 ease-linear"
               />
               <ModalHeader className="z-10">
-                <h2 className="text-xl font-bold">{selected.name}</h2>
+                <h2 className="text-xl font-bold">{selected?.name}</h2>
               </ModalHeader>
               <ModalBody className="z-10">
                 <h3 className="font-mod text-lg font-semibold">Description</h3>
                 <p>
-                  {selected.description ||
+                  {selected?.description ||
                     "A brief description of the project and its main features."}
                 </p>
                 <h3 className="z-0 font-mod text-lg font-semibold">
                   Challenges
                 </h3>
                 <p className="mb-2">
-                  {selected.challenges ||
+                  {selected?.challenges ||
                     "This project had various technical and design challenges that were overcome."}
                 </p>
                 <h3 className="font-mod text-lg font-semibold">Technologies</h3>
                 <div className="flex flex-wrap gap-2 text-xs sm:text-sm">
-                  {selected.technologies?.map((tech, i) => (
+                  {selected?.technologies?.map((tech, i) => (
                     <span
                       key={i}
                       title={tech.name}
@@ -523,9 +565,9 @@ function Projects({
                 </div>
               </ModalBody>
               <ModalFooter>
-                {selected.link && (
+                {selected?.link && (
                   <Link
-                    href={selected.link}
+                    href={selected?.link}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="z-10 flex items-center gap-2 rounded-xl border px-4 py-3 font-mod text-sm font-semibold ring-1 ring-white/15 transition-all ease-in-out hover:ring-4 active:ring-8"
@@ -545,3 +587,134 @@ function Projects({
     </div>
   );
 }
+
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faRocket,
+  faCode,
+  faLaptopCode,
+  faServer,
+  faChartLine,
+  faCogs,
+  faMobileAlt,
+  faGlobe,
+} from "@fortawesome/free-solid-svg-icons";
+
+const Timeline = () => {
+  const timelineData = [
+    {
+      year: "2018",
+      title: "The Beginning",
+      description: "Started learning HTML, CSS, JavaScript, and UI/UX design.",
+      icon: faRocket,
+    },
+    {
+      year: "2019",
+      title: "Exploring Frameworks",
+      description:
+        "Learned React.js, Git & GitHub, and started collaborating on projects.",
+      icon: faCode,
+    },
+    {
+      year: "2020",
+      title: "Real-World Projects",
+      description:
+        "Started working with Next.js, SSR & SSG, and optimized website performance.",
+      icon: faLaptopCode,
+    },
+    {
+      year: "2021",
+      title: "Backend Development",
+      description:
+        "Learned Node.js, Express, PostgreSQL, and built REST APIs with authentication.",
+      icon: faServer,
+    },
+    {
+      year: "2022",
+      title: "Scaling Up",
+      description:
+        "Built scalable websites, improved SEO, and worked on freelance projects.",
+      icon: faChartLine,
+    },
+    {
+      year: "2023",
+      title: "Advanced Development",
+      description: "Focused on UI/UX design, SEO optimization, and TypeScript.",
+      icon: faCogs,
+    },
+    {
+      year: "2024",
+      title: "Current Focus",
+      description:
+        "Learning React Native for mobile app development, refactoring projects with TypeScript, and working on Sofreh Khaneh & Iran GameNet.",
+      icon: faMobileAlt,
+    },
+    {
+      year: "2025",
+      title: "Future Goals",
+      description:
+        "Focus on mastering React Native, contribute to open-source projects, and continue refining backend architecture with TypeScript and PostgreSQL.",
+      icon: faGlobe,
+    },
+  ];
+
+  return (
+    <div className="sticky ml-0 md:ml-12 xl:w-2/3">
+      <div className="container mx-auto h-full w-full">
+        <div className="wrap relative h-full overflow-hidden p-10">
+          <div
+            className="border-2-2 border-yellow-555 absolute h-full border"
+            style={{
+              right: "50%",
+              border: "2px solid #FFF",
+              borderRadius: "1%",
+            }}
+          ></div>
+          <div
+            className="border-2-2 border-yellow-555 absolute h-full border"
+            style={{
+              left: "50%",
+              border: "2px solid #FFF",
+              borderRadius: "1%",
+            }}
+          ></div>
+          {timelineData.map((item, index) => (
+            <div
+              key={index}
+              className={`mb-8 flex w-full ${index % 2 === 0 ? "flex-row-reverse" : ""} items-center justify-between`}
+            >
+              <div className="group/card relative order-1 flex h-full w-5/12 flex-col justify-between px-1 py-4 text-right">
+                <div className="z-0">
+                  <p className="mb-3 text-base text-white/90">{item.year}</p>
+                  <h4 className="z-10 mb-3 text-lg font-bold md:text-2xl">
+                    {item.title}
+                  </h4>
+                  <p className="text-sm leading-snug text-gray-50 text-opacity-100 md:text-base">
+                    {item.description}
+                  </p>
+                </div>
+
+                <div className="absolute -top-4 left-0 mt-auto flex rotate-6 justify-end lg:top-1 2xl:top-5">
+                  <div className="z-0 transform rounded-2xl bg-white/10 p-4 shadow-2xl shadow-white/15 backdrop-blur transition-all duration-500 ease-in-out group-hover/card:scale-110 group-hover/card:bg-white/30 group-hover/card:shadow-xl">
+                    <FontAwesomeIcon
+                      icon={item.icon}
+                      className="text-3xl text-white"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+        <Image
+          alt="About Seyed Mohsen Mousavi"
+          width={350}
+          height={150}
+          className="mx-auto -mt-36 grayscale"
+          src="/images/10259340_4401278.svg"
+          loading="lazy"
+        />
+      </div>
+    </div>
+  );
+};

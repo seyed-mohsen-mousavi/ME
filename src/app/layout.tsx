@@ -83,9 +83,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className="behavior">
+    <html lang="en" className="dark">
       <body
-        className={`${montserrat.className} ${audiowide.variable} dark antialiased selection:bg-white selection:text-black`}
+        className={`${montserrat.className} ${audiowide.variable} antialiased  selection:bg-white selection:text-black`}
       >
         <AnimatedCursor
           color="255, 255, 255"
