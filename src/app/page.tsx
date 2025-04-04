@@ -71,7 +71,7 @@ export default function Home() {
         {/* Projects */}
         <Projects projectsRef={projectsRef} />
         <hr className="-mb-5 shadow-2xl shadow-white blur-sm" />
-        <footer className="mx-auto !mb-4 font-mod">
+        <footer className="mx-auto mb-10 sm:!mb-4 font-mod">
           <span className="tetxt-sm text-neutral-400">
             For more information, call me at:{" "}
           </span>

@@ -3,6 +3,7 @@ import "./globals.css";
 import AnimatedCursor from "react-animated-cursor";
 import localFont from "next/font/local";
 import { HeroUIProvider } from "@heroui/react";
+import CustomCursor from "@/components/CustomCursor";
 
 export const metadata: Metadata = {
   title: "Seyed Mohsen Mousavi | Full-Stack Developer",
@@ -85,14 +86,9 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark">
       <body
-        className={`${montserrat.className} ${audiowide.variable} text-white antialiased selection:bg-white selection:text-black`}
+        className={`${montserrat.className} ${audiowide.variable} overflow-x-hidden text-white antialiased selection:bg-white selection:text-black`}
       >
-        <AnimatedCursor
-          color="255, 255, 255"
-          outerStyle={{
-            boxShadow: "0px 0px 10px 2px rgba(255, 255, 255, 0.7)",
-          }}
-        />
+        <CustomCursor />
         <HeroUIProvider>
           <section className="mx-auto max-w-[1920px] px-5 sm:px-10 md:px-20 lg:px-32">
             {children}

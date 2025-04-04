@@ -36,3 +36,52 @@ h1,
 h2 {
   @apply text-white;
 }
+.give-star {
+  @apply relative flex items-center gap-2 rounded-lg bg-white/20 px-4 py-2 ring-1 ring-white/15 backdrop-blur-sm transition-all ease-in-out hover:ring-4 active:ring-8;
+}
+
+.give-star::after {
+  position: absolute;
+  content: "";
+  top: 15px;
+  left: 0;
+  right: 0;
+  z-index: -1;
+  height: 100%;
+  width: 100%;
+  transform: scale(0.9) translateZ(0);
+  filter: blur(15px);
+  background: linear-gradient(
+    to left,
+    #000000,
+    #222222,
+    #444444,
+    #666666,
+    #888888,
+    #666666,
+    #444444,
+    #222222,
+    #000000
+  );
+  background-size: 200% 200%;
+  -webkit-animation: animateGlow 1.25s linear infinite;
+  animation: animateGlow 1.25s linear infinite;
+}
+
+@-webkit-keyframes animateGlow {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 200% 50%;
+  }
+}
+
+@keyframes animateGlow {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 200% 50%;
+  }
+}
