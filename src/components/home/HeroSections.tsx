@@ -35,7 +35,7 @@ function HeroSections({ socialLinks }: { socialLinks: Links[] }) {
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6, ease: "easeOut" }}
         >
-          <p className="mb-6 text-xs text-neutral-700 md:text-sm">
+          <p className="mb-6 text-xs text-neutral-500 md:text-sm">
             I am a full-stack developer with expertise in modern frameworks like
             React and Next.js. I have extensive experience working with various
             tools and technologies, including TypeScript, Tailwind CSS,
@@ -45,7 +45,7 @@ function HeroSections({ socialLinks }: { socialLinks: Links[] }) {
           </p>
           <Link
             href={"/"}
-            className="m-2 text-sm tracking-widest text-neutral-400 sm:text-base"
+            className="m-2 text-sm tracking-widest text-neutral-300 sm:text-base"
           >
             Need More
           </Link>
@@ -59,11 +59,11 @@ function HeroSections({ socialLinks }: { socialLinks: Links[] }) {
         >
           <Link
             href={"/"}
-            className="m-2 text-sm tracking-widest text-neutral-400 sm:text-base"
+            className="m-2 text-sm tracking-widest text-neutral-300 sm:text-base"
           >
             Need More
           </Link>
-          <p className="mt-6 text-xs text-neutral-700 md:text-sm">
+          <p className="mt-6 text-xs text-neutral-500 md:text-sm">
             I am a full-stack developer with expertise in modern frameworks like
             React and Next.js. I have extensive experience working with various
             tools and technologies, including TypeScript, Tailwind CSS.
