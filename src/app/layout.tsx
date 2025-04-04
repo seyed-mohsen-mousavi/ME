@@ -85,7 +85,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark">
       <body
-        className={`${montserrat.className} ${audiowide.variable} antialiased  selection:bg-white selection:text-black`}
+        className={`${montserrat.className} ${audiowide.variable} text-white antialiased selection:bg-white selection:text-black`}
       >
         <AnimatedCursor
           color="255, 255, 255"

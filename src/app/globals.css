@@ -29,5 +29,10 @@ body {
   }
 }
 .head-text {
-  @apply font-mod text-4xl font-semibold;
+  @apply font-mod text-4xl font-semibold text-white;
+}
+
+h1,
+h2 {
+  @apply text-white;
 }
