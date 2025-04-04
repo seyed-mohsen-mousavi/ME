@@ -9,7 +9,7 @@ import {
   FaGitAlt,
 } from "react-icons/fa";
 import { SiNextdotjs, SiAdobephotoshop, SiMongodb } from "react-icons/si";
-import { BiLogoTypescript, BiLogoPostgresql, BiLink } from "react-icons/bi";
+import { BiLogoTypescript, BiLogoPostgresql } from "react-icons/bi";
 import Navbar from "@/components/Navbar";
 import { useRef } from "react";
 import Skills from "@/components/home/Skills";
