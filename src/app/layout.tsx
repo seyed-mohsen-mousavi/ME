@@ -1,6 +1,5 @@
 import { Metadata } from "next";
 import "./globals.css";
-import AnimatedCursor from "react-animated-cursor";
 import localFont from "next/font/local";
 import { HeroUIProvider } from "@heroui/react";
 import CustomCursor from "@/components/CustomCursor";
