@@ -16,7 +16,6 @@ import { GiArmoredBoomerang } from "react-icons/gi";
 import { RiRoadMapLine, RiTailwindCssFill } from "react-icons/ri";
 import { SiNextdotjs } from "react-icons/si";
 
-
 const projects: Project[] = [
   {
     id: 1,
@@ -79,8 +78,21 @@ const projects: Project[] = [
       "A fun project to explore Rick and Morty characters using an open API, featuring character details and filtering.",
     challenges: `Fetching data from the Rick and Morty API and implementing a simple and responsive UI.`,
   },
+  {
+    id: 5,
+    name: "Meh Gap",
+    link: "https://meh-gap.vercel.app/",
+    image: "/images/p-meh_gap.avif",
+    technologies: [
+      { icon: <SiNextdotjs className="size-5" />, name: "Netx.js" },
+      { icon: <RiTailwindCssFill className="size-5" />, name: "Tailwind CSS" },
+      { icon: <FaGitAlt className="size-5" />, name: "Git" },
+    ],
+    description:
+      "It is a lightweight, fast, and secure messenger with a crystal-clear design and minimal user interface. *open You can see this project on my GitHub",
+    challenges: `Upload file audio recorder full dynamic beauti responsive .`,
+  },
 ];
-
 
 export default function Projects({
   projectsRef,
@@ -89,11 +101,15 @@ export default function Projects({
 }) {
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
   const [selected, setSelected] = useState<Project | null>(null);
+  const [showAll, setShowAll] = useState(false);
+
+  const displayedProjects = showAll ? projects : projects.slice(0, 4);
+
   return (
     <div ref={projectsRef} id="projects" className="flex flex-col">
       <h2 className="head-text my-10">Projects</h2>
-      <div className="mb-20 grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4">
-        {projects.map((project: Project, index: number) => (
+      <div className="mb-10 grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4">
+        {displayedProjects.map((project: Project, index: number) => (
           <div
             onClick={() => {
               setSelected(project);
@@ -117,6 +133,7 @@ export default function Projects({
                 alt={project.name}
                 width={200}
                 height={300}
+                loading="lazy"
                 className="mt-1.5 aspect-video h-52 w-full rounded-2xl object-cover object-top shadow-[-3px_20px_0px_0px_rgb(255,_255,_255)] transition-all duration-500 ease-linear hover:object-bottom group-hover:grayscale-[0.5] sm:w-96"
               />
             </div>
@@ -132,6 +149,15 @@ export default function Projects({
           </div>
         ))}
       </div>
+      {projects.length > 4 && (
+        <button
+          onClick={() => setShowAll(!showAll)}
+          className="mx-auto flex items-center gap-2 rounded-xl border px-5 py-3 font-mod text-lg font-semibold text-white ring-1 ring-white/15 transition-all ease-in-out hover:ring-4 active:ring-8"
+        >
+          {showAll ? "Show Less" : "See More"}{" "}
+          <GiArmoredBoomerang className="size-6" />
+        </button>
+      )}
       <Modal
         className="relative w-screen border border-zinc-400/50 backdrop-blur-sm sm:w-auto"
         isOpen={isOpen}
@@ -143,6 +169,7 @@ export default function Projects({
               <Image
                 fill
                 unoptimized
+                loading="lazy"
                 src={selected?.image ? selected?.image : ""}
                 alt={selected?.name ? selected?.name : "Project"}
                 className="z-0 mt-1.5 w-full rounded-2xl object-cover opacity-50 blur-md brightness-50 transition-all duration-500 ease-linear"
@@ -194,9 +221,6 @@ export default function Projects({
           )}
         </ModalContent>
       </Modal>
-      <button className="mx-auto flex items-center gap-2 rounded-xl border px-5 py-3 font-mod text-lg font-semibold text-white ring-1 ring-white/15 transition-all ease-in-out hover:ring-4 active:ring-8">
-        See More <GiArmoredBoomerang className="size-6" />
-      </button>
     </div>
   );
 }
