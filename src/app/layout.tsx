@@ -36,8 +36,8 @@ export const metadata: Metadata = {
     images: [
       {
         url: "/images/logo.jpeg",
-        width: 180,
-        height: 180,
+        width: 60,
+        height: 60,
         alt: "Seyed Mohsen Mousavi Portfolio",
       },
     ],
