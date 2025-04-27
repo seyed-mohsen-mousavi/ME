@@ -48,15 +48,19 @@ function AboutMe({ aboutRef }: { aboutRef: RefObject<HTMLDivElement> }) {
           <span className="font-semibold text-neutral-200">
             full-stack developer
           </span>{" "}
-          specializing in{" "}
-          <span className="font-semibold text-neutral-200">modern UI</span>{" "}
-          design and{" "}
+          passionate about{" "}
+          <span className="font-semibold text-neutral-200">
+            modern UI design
+          </span>{" "}
+          and{" "}
           <span className="font-semibold text-neutral-200">
             backend optimization
           </span>
-          , focused on building smooth and{" "}
-          <span className="font-semibold text-neutral-200">user-centric</span>{" "}
-          experiences.
+          , dedicated to crafting{" "}
+          <span className="font-semibold text-neutral-200">
+            smooth user experiences
+          </span>{" "}
+          that just feel right.
         </motion.p>
         <motion.p
           initial={{ filter: "blur(6px)" }}
