@@ -45,7 +45,7 @@ function AboutMe({ aboutRef }: { aboutRef: RefObject<HTMLDivElement> }) {
           viewport={{ once: true }}
         >
           a <span className="font-semibold text-neutral-200">full-stack</span>{" "}
-          developer with over 3 years of experience in web development. I
+          developer with 3 years of experience since becoming full-stack. I
           specialize in crafting{" "}
           <span className="font-semibold text-neutral-200">modern UI</span>{" "}
           designs and optimizing backend performance, always focused on creating{" "}
