@@ -2,7 +2,7 @@
 
 🎉 **Welcome to my portfolio!** This is where I showcase my skills, experience, and projects as a **Full-Stack Developer** specializing in modern web technologies.
 
-🔗 **Live Demo:** [xseyed.vercel.app](https://xseyed.ir/)
+🔗 **Live Demo:** [xseyed.ir](https://xseyed.ir/)
 
 ---
 
