@@ -44,13 +44,19 @@ function AboutMe({ aboutRef }: { aboutRef: RefObject<HTMLDivElement> }) {
           className="max-w-2xl"
           viewport={{ once: true }}
         >
-          a <span className="font-semibold text-neutral-200">full-stack</span>{" "}
-          developer with 3 years of experience since becoming full-stack. I
-          specialize in crafting{" "}
+          a{" "}
+          <span className="font-semibold text-neutral-200">
+            full-stack developer
+          </span>{" "}
+          specializing in{" "}
           <span className="font-semibold text-neutral-200">modern UI</span>{" "}
-          designs and optimizing backend performance, always focused on creating{" "}
-          <span className="font-semibold text-neutral-200">user-friendly</span>{" "}
-          and efficient digital experiences.
+          design and{" "}
+          <span className="font-semibold text-neutral-200">
+            backend optimization
+          </span>
+          , focused on building smooth and{" "}
+          <span className="font-semibold text-neutral-200">user-centric</span>{" "}
+          experiences.
         </motion.p>
         <motion.p
           initial={{ filter: "blur(6px)" }}
