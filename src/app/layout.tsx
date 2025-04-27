@@ -25,29 +25,17 @@ export const metadata: Metadata = {
     "Frontend Development",
     "Backend Development",
   ],
-  icons: {
-    icon: "/images/logo.jpeg",
-  },
   openGraph: {
     title: "Seyed Mohsen Mousavi | Full-Stack Developer",
     description: `I specialize in developing modern and scalable web applications using React, Next.js, TypeScript, and more.`,
     url: "https://xseyed.vercel.app/",
     siteName: "Seyed Mohsen Mousavi",
-    images: [
-      {
-        url: "/images/logo.jpeg",
-        width: 60,
-        height: 60,
-        alt: "Seyed Mohsen Mousavi Portfolio",
-      },
-    ],
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
     title: "Seyed Mohsen Mousavi | Full-Stack Developer",
     description: `Experienced full-stack developer skilled in React, Next.js, TypeScript, and backend technologies.`,
-    images: ["/images/logo.jpeg"],
   },
 };
 
