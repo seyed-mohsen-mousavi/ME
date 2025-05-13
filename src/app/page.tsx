@@ -17,6 +17,10 @@ import Projects from "@/components/home/Projects";
 import HeroSections from "@/components/home/HeroSections";
 import { Links } from "@/types";
 import AboutMe from "@/components/home/AboutMe";
+import { SiExpress } from "react-icons/si";
+import { LiaDocker } from "react-icons/lia";
+import SoftSkills from "@/components/home/SoftSkills";
+
 // ---------------------------------
 const skillData = [
   { icon: FaReact, value: 89 },
@@ -25,9 +29,11 @@ const skillData = [
   { icon: BiLogoPostgresql, value: 90 },
   { icon: SiMongodb, value: 100 },
   { icon: FaNode, value: 90 },
+  { icon: SiExpress, value: 95 },
   { icon: SiAdobephotoshop, value: 100 },
   { icon: FaGitAlt, value: 88 },
   { icon: RiTailwindCssFill, value: 100 },
+  { icon: LiaDocker, value: 50 },
 ];
 const socialLinks: Links[] = [
   { icon: RiTelegram2Fill, href: "https://t.me/XSeyed" },
@@ -68,10 +74,11 @@ export default function Home() {
         <AboutMe aboutRef={aboutRef} />
         {/* Skills */}
         <Skills skillsRef={skillsRef} skillData={skillData} />
+        <SoftSkills />
         {/* Projects */}
         <Projects projectsRef={projectsRef} />
         <hr className="-mb-5 shadow-2xl shadow-white blur-sm" />
-        <footer className="mx-auto mb-10 sm:!mb-4 font-mod">
+        <footer className="mx-auto mb-10 font-mod sm:!mb-4">
           <span className="tetxt-sm text-neutral-400">
             For more information, call me at:{" "}
           </span>
