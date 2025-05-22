@@ -43,12 +43,15 @@ function HeroSections({ socialLinks }: { socialLinks: Links[] }) {
             user experiences, particularly with UI/UX design principles, allows
             me to develop complex projects effectively and efficiently.
           </p>
-          <Link
-            href={"/"}
+
+          <a
+            href="/Resume.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
             className="m-2 text-sm tracking-widest text-neutral-300 sm:text-base"
           >
-            Need More
-          </Link>
+            View My Resume(persian)
+          </a>
         </motion.div>
 
         <motion.div
@@ -57,12 +60,14 @@ function HeroSections({ socialLinks }: { socialLinks: Links[] }) {
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6, ease: "easeOut" }}
         >
-          <Link
-            href={"/"}
+          <a
+            href="/Resume.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
             className="m-2 text-sm tracking-widest text-neutral-300 sm:text-base"
           >
-            Need More
-          </Link>
+            View My Resume(persian)
+          </a>
           <p className="mt-6 text-xs text-neutral-500 md:text-sm">
             I am a full-stack developer with expertise in modern frameworks like
             React and Next.js. I have extensive experience working with various
