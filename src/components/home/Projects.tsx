@@ -36,7 +36,7 @@ const projects: Project[] = [
   {
     id: 2,
     name: "MovieLife",
-    link: "https://movielife.ir/",
+    link: "https://movielife.vercel.app/",
     image: "/images/p-movielife.jpg",
     technologies: [
       { icon: <SiNextdotjs className="size-5" />, name: "Next.js" },
