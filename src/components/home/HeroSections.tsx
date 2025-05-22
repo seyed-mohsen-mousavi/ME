@@ -1,6 +1,5 @@
 import React from "react";
 import { motion } from "framer-motion";
-import Link from "next/link";
 import { Links } from "@/types";
 
 function HeroSections({ socialLinks }: { socialLinks: Links[] }) {
