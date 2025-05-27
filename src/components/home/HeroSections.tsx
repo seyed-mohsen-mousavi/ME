@@ -54,7 +54,7 @@ function HeroSections({ socialLinks }: { socialLinks: Links[] }) {
         </motion.div>
 
         <motion.div
-          className="max-w-sm text-right"
+          className="max-w-sm text-right hidden sm:block"
           initial={{ opacity: 0, x: 100 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6, ease: "easeOut" }}
@@ -63,7 +63,7 @@ function HeroSections({ socialLinks }: { socialLinks: Links[] }) {
             href="/Resume.pdf"
             target="_blank"
             rel="noopener noreferrer"
-            className="m-2 text-sm tracking-widest text-neutral-300 sm:text-base"
+            className="m-2 text-sm tracking-widest text-neutral-300 sm:text-base "
           >
             View My Resume(persian)
           </a>
